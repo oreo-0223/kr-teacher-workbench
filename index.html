@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>科任教师工作台</title>
+<link rel="stylesheet" href="css/style.css?v=2026081801">
+</head>
+<body>
+<div id="app"></div>
+
+<!-- 登录/初始化页 -->
+<div id="gate" class="gate hidden">
+  <div class="gate-card" id="gateCard"></div>
+</div>
+
+<!-- 主应用 -->
+<div id="shell" class="shell hidden">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <span class="brand-logo">📚</span>
+      <span class="brand-text">科任工作台</span>
+    </div>
+    <button class="nav-toggle" id="navToggle" title="折叠/展开">
+      <span class="hamburger"><i></i><i></i><i></i></span>
+    </button>
+    <nav class="nav" id="nav">
+      <a class="nav-item active" data-route="workbench">🏠 <span>工作台</span></a>
+      <a class="nav-item" data-route="schedule">📅 <span>课程表</span></a>
+      <a class="nav-item" data-route="roster">👦 <span>花名册</span></a>
+      <a class="nav-item" data-route="grades">📊 <span>成绩分析</span></a>
+    </nav>
+    <div class="nav-foot">
+      <button class="nav-item foot-btn" id="btnLog" title="操作日志（只读，支持回滚）">📜 <span>操作日志</span></button>
+      <button class="nav-item foot-btn" id="btnAccounts">👥 <span>账号管理</span></button>
+      <button class="nav-item foot-btn" id="btnSettings">⚙️ <span>设置</span></button>
+      <button class="nav-item foot-btn" id="btnLogout">🚪 <span>退出</span></button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar" id="topbar">
+      <button class="icon-btn mobile-only" id="menuBtn">☰</button>
+      <h2 class="page-title" id="pageTitle">工作台</h2>
+      <div class="topbar-right" id="topbarRight">
+        <div class="class-dropdown" id="classDropdown">
+          <button class="class-drop-btn" id="classDropBtn" type="button">--</button>
+          <div class="class-drop-menu hidden" id="classDropMenu"></div>
+        </div>
+        <span class="chip soft" id="dateChip"></span>
+      </div>
+    </header>
+    <section class="content" id="content"></section>
+  </main>
+</div>
+
+<!-- 通用遮罩/抽屉 -->
+<div class="overlay" id="overlay"></div>
+
+<!-- 详情面板（抽屉式，用于工作台卡片详情） -->
+<aside class="drawer" id="drawer">
+  <header class="drawer-head">
+    <h3 id="drawerTitle">详情</h3>
+    <button class="icon-btn" id="drawerClose">✕</button>
+  </header>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+
+<!-- 模态对话框 -->
+<div class="modal" id="modal">
+  <div class="modal-card">
+    <header class="modal-head"><h3 id="modalTitle"></h3><button class="icon-btn" id="modalClose">✕</button></header>
+    <div class="modal-body" id="modalBody"></div>
+    <footer class="modal-foot" id="modalFoot"></footer>
+  </div>
+</div>
+
+<!-- 提示条 -->
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script src="js/api.js?v=2026081110"></script>
+<script src="js/classroom.js?v=2026081110"></script>
+<script src="js/app.js?v=2026081110"></script>
+<script src="js/workbench.js?v=2026081110"></script>
+<script src="js/schedule.js?v=2026081110"></script>
+<script src="js/xlsx-read.js?v=2026081801"></script>
+<script src="js/roster.js?v=2026081801"></script>
+<script src="js/grades.js?v=2026081110"></script>
+<script src="js/logview.js?v=2026081110"></script>
+</body>
+</html>
