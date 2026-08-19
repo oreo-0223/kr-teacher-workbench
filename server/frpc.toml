@@ -1,0 +1,30 @@
+# ============================================================
+# frpc.toml · frp 客户端配置
+# 
+# 使用前需要修改：
+#   1. serverAddr  → 你的云服务器公网 IP
+#   2. serverPort  → frp 服务端端口（默认 7000）
+#   3. token       → frp 服务端设置的认证 token
+#   4. remotePort  → 外网访问端口（如 8080）
+#
+# 安装方法见 frp-setup.sh
+# ============================================================
+
+serverAddr = "你的云服务器公网IP"
+serverPort = 7000
+auth.token = "你设置的密钥"
+
+[[proxies]]
+name = "kr-teacher-web"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 3000
+remotePort = 8080
+
+# 如果需要绑定域名，取消注释以下配置：
+# [[proxies]]
+# name = "kr-teacher-http"
+# type = "http"
+# localIP = "127.0.0.1"
+# localPort = 3000
+# customDomains = ["teacher.yourdomain.com"]

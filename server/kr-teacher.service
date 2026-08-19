@@ -1,0 +1,30 @@
+# ============================================================
+# kr-teacher.service · systemd 服务配置
+# 安装方法：
+#   sudo cp kr-teacher.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable kr-teacher   # 开机自启
+#   sudo systemctl start kr-teacher    # 立即启动
+#
+# 注意：ExecStart 中的路径需要改为实际部署路径
+# deploy.sh 会自动生成正确路径的版本
+# ============================================================
+[Unit]
+Description=KR Teacher Workbench Server
+After=network.target
+
+[Service]
+Type=simple
+# ↓↓↓ 修改为你的实际路径 ↓↓↓
+WorkingDirectory=/home/teacher/kr-teacher/server
+ExecStart=/usr/bin/node --disable-warning=ExperimentalWarning server.js
+Environment=PORT=3000
+# 自动重启
+Restart=on-failure
+RestartSec=5
+# 日志
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

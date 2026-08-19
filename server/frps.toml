@@ -1,0 +1,25 @@
+# ============================================================
+# frps.toml · frp 服务端配置模板（云服务器）
+# 
+# 在云服务器上运行 frps-setup.sh 会自动生成此文件
+# 也可手动复制到此位置并修改
+#
+# 安装位置：/etc/frp/frps.toml
+# ============================================================
+
+# frp 服务端监听端口（客户端连接此端口）
+bindPort = 7000
+
+# 认证密钥（客户端必须填写相同的值）
+auth.token = "your-secret-token-here"
+
+# 管理面板（可选）
+webServer.addr = "0.0.0.0"
+webServer.port = 7500
+webServer.user = "admin"
+webServer.password = "admin123"
+
+# 允许客户端使用的远程端口范围（可选）
+# allowPorts = [
+#   { start = 8000, end = 9000 }
+# ]
